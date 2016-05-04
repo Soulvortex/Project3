@@ -4,10 +4,35 @@ from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.properties import ObjectProperty
+from kivy.lang import Builder
 
-class TypesScreen(GridLayout):
+
+class ScreenButton(Button):
+	screenmanager=ObjectProperty()
+	def on_press_down(self, **kwargs):
+		super(ScreenButton, self).on_press_down(*args)
+		self.screenmanager.current='Normal Pokemon'
+
+		
+
+		
+		
+		
+sm = ScreenManager()
+
+sc1= Screen(name='Normal Pokemon')
+sc1.add_widget(ScreenButton(screenmanager=sm))
+
+sc2= Screen(name='Fighting Pokemon')
+sc2.add_widget(Label(text='Another Screen')	
+
+
+
+class MyScreen(GridLayout):
 	def __init__(self, **kwargs):
-		super(TypesScreen, self).__init__(**kwargs)
+		super(MyScreen, self).__init__(**kwargs)
 		self.cols = 6
 		self.add_widget(Button(text='Normal'))
 		self.add_widget(Button(text='Fighting'))
@@ -27,13 +52,14 @@ class TypesScreen(GridLayout):
 		self.add_widget(Button(text='Dragon'))
 		self.add_widget(Button(text='Dark'))
 		self.add_widget(Button(text='Fairy'))
+	
+	
 		
 
 
 class Pokemon(App):
 	def build(self):
-		#return Label(text='Welcome to Pokemon Typing Calculator!')
-		return TypesScreen
+		return MyScreen()
 
 		
 if __name__== '__main__':

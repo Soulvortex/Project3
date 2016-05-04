@@ -1,0 +1,64 @@
+
+<PokeButton@Button>:
+	markup: True
+	font_size: 20
+	text_size: self.size
+	
+<FirstScreen>
+	name: 'first'
+	GridLayout:
+		size: root.size
+		rows: 3
+		cols: 6
+		PokeButton:
+			text: "Normal"
+			on_release: root.manager.current = 'second'
+		PokeButton:
+			text: "Fighting"
+		PokeButton:
+			text: "Flying"
+		PokeButton:
+			text: "Poison"
+		PokeButton:
+			text: "Ground"
+		PokeButton:
+			text: "Rock"
+		PokeButton:
+			text: "Bug"
+		PokeButton:
+			text: "Ghost"
+		PokeButton:
+			text: "Steel"
+		PokeButton:
+			text: "Fire"
+		PokeButton:
+			text: "Water"
+		PokeButton:
+			text: "Grass"
+		PokeButton: 
+			text: "Electric"
+		PokeButton:
+			text: "Psychic"
+		PokeButton:
+			text: "Ice"
+		PokeButton:
+			text: "Dragon"
+		PokeButton:
+			text: "Dark"
+		PokeButton:
+			text: "Fairy"
+				
+<SecondScreen>
+	name: 'second'
+	Button:
+		text: 'Hello'
+		on_release: root.manager.current = 'first'
+<Change>
+	FirstScreen:
+	SecondScreen:
+	
+	
+	
+	
+
+		
