@@ -9,24 +9,23 @@ prompt = 'Enter a Number'
 for i in range(1,18):
 	answer=eval(input(prompt))
 	if answer==2:
+		new_code=str.replace(url,'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/1/')
+		code=requests.get(new_code)
+		final=code.json()
+		print(json.dumps(final["damage_relations"], indent=4, sort_keys=True))
+		'''
+		pprint(final["damage_relations"]["double_damage_from"])
+		pprint(final["damage_relations"]["half_damage_from"])
+		pprint(final["damage_relations"]["half_damage_to"])
+		pprint(final["damage_relations"]["no_damage_from"])
+		pprint(final["damage_relations"]["no_damage_to"])
+		'''
+		break
+	if answer==3:
 		new_code=str.replace(url,'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/2/')
 		code=requests.get(new_code)
 		final=code.json()
-		pprint(final["damage_relations"]["double_damage_from"])
-		pprint(final["damage_relations"]["half_damage_from"])
-		pprint(final["damage_relations"]["half_damage_to"])
-		pprint(final["damage_relations"]["no_damage_from"])
-		pprint(final["damage_relations"]["no_damage_to"])
-		break
-	if answer==3:
-		new_code=str.replace(url,'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/3/')
-		code=requests.get(new_code)
-		final=code.json()
-		pprint(final["damage_relations"]["double_damage_from"])
-		pprint(final["damage_relations"]["half_damage_from"])
-		pprint(final["damage_relations"]["half_damage_to"])
-		pprint(final["damage_relations"]["no_damage_from"])
-		pprint(final["damage_relations"]["no_damage_to"])
+		pprint(final["damage_relations"])
 		break
 	if answer==4:
 		new_code=str.replace(url,'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/4/')

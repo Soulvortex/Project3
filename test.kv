@@ -4,58 +4,233 @@
 	font_size: 20
 	text_size: self.size
 	
-<FirstScreen>
-	name: 'first'
+<HomeScreen>
+	name: 'Home'
 	GridLayout:
 		size: root.size
 		rows: 3
 		cols: 6
 		PokeButton:
 			text: "Normal"
-			on_release: root.manager.current = 'second'
+			on_release: root.manager.current = 'Normal'
 		PokeButton:
 			text: "Fighting"
+			on_release: root.manager.current = 'Fighting'
 		PokeButton:
 			text: "Flying"
+			on_release: root.manager.current = 'Flying'
 		PokeButton:
 			text: "Poison"
+			on_release: root.manager.current = 'Poison'
 		PokeButton:
 			text: "Ground"
+			on_release: root.manager.current = 'Ground'
 		PokeButton:
 			text: "Rock"
+			on_release: root.manager.current = 'Rock'
 		PokeButton:
 			text: "Bug"
+			on_release: root.manager.current = 'Bug'
 		PokeButton:
 			text: "Ghost"
+			on_release: root.manager.current = 'Ghost'
 		PokeButton:
 			text: "Steel"
+			on_release: root.manager.current = 'Steel'
 		PokeButton:
 			text: "Fire"
+			on_release: root.manager.current = 'Fire'
 		PokeButton:
 			text: "Water"
+			on_release: root.manager.current = 'Water'
 		PokeButton:
 			text: "Grass"
+			on_release: root.manager.current = 'Grass'
 		PokeButton: 
 			text: "Electric"
+			on_release: root.manager.current = 'Electric'
 		PokeButton:
 			text: "Psychic"
+			on_release: root.manager.current = 'Psychic'
 		PokeButton:
 			text: "Ice"
+			on_release: root.manager.current = 'Ice'
 		PokeButton:
 			text: "Dragon"
+			on_release: root.manager.current = 'Dragon'
 		PokeButton:
 			text: "Dark"
+			on_release: root.manager.current = 'Dark'
 		PokeButton:
 			text: "Fairy"
+			on_release: root.manager.current = 'Fairy'
 				
-<SecondScreen>
-	name: 'second'
-	Button:
-		text: 'Hello'
-		on_release: root.manager.current = 'first'
+<Normal>
+	name: 'Normal'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Fighting>
+	name: 'Fighting'
+	BoxLayout:
+		Label:
+			text: 'Hello Boys and Girls'
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Flying>
+	name: 'Flying'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Poison>
+	name: 'Poison'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Ground>	
+	name: 'Ground'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+
+<Rock>
+	name: 'Rock'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Bug>
+	name: 'Bug'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Ghost>
+	name: 'Ghost'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Steel>
+	name: 'Steel'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Fire>
+	name: 'Fire'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Water>
+	name: 'Water'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Grass>
+	name: 'Grass'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Electric>
+	name: 'Electric'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Psychic>
+	name: 'Psychic'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Ice>
+	name: 'Ice'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Dragon>
+	name: 'Dragon'
+		BoxLayout:
+			Label:
+				text: root.labelText
+			Button:
+				text: 'Return To Main Screen'
+				on_release: root.manager.current = 'Home'
+<Dark>
+	name: 'Dark'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+<Fairy>
+	name: 'Fairy'
+	BoxLayout:
+		Label:
+			text: root.labelText
+		Button:
+			text: 'Return To Main Screen'
+			on_release: root.manager.current = 'Home'
+			
 <Change>
-	FirstScreen:
-	SecondScreen:
+	HomeScreen:
+	Normal:
+	Fighting:
+	Flying:
+	Poison:
+	Ground:
+	Rock:
+	Bug:
+	Ghost:
+	Steel:
+	Fire:
+	Water:
+	Grass:
+	Electric:
+	Psychic:
+	Ice:
+	Dragon:
+	Dark:
+	Fairy:
 	
 	
 	
