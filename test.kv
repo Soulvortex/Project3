@@ -1,214 +1,402 @@
 
 <PokeButton@Button>:
-	markup: True
-	font_size: 20
+	markup: False
 	text_size: self.size
+	size_hint: .5, 1.0
+	border: (4,4,4,4)
 	
 <HomeScreen>
 	name: 'Home'
 	GridLayout:
+		size_hint: 1.0, 1.0
 		size: root.size
 		rows: 3
 		cols: 6
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'pokeball.png'
+		
 		PokeButton:
 			text: "Normal"
-			on_release: root.manager.current = 'Normal'
+			color: 0,0,1,1
+			background_normal: 'snorlax.gif'
+			on_release: root.manager.current= 'Normal'
 		PokeButton:
 			text: "Fighting"
+			color: 0,0,1,1
+			background_normal: 'machamp.gif'
 			on_release: root.manager.current = 'Fighting'
 		PokeButton:
 			text: "Flying"
+			color: 0,0,1,1
+			background_normal: 'staraptor.gif'
 			on_release: root.manager.current = 'Flying'
 		PokeButton:
 			text: "Poison"
+			color: 0,0,1,1
+			background_normal: 'nidoking.gif'
 			on_release: root.manager.current = 'Poison'
 		PokeButton:
 			text: "Ground"
+			color: 0,0,1,1
+			background_normal: 'groudon.gif'
 			on_release: root.manager.current = 'Ground'
 		PokeButton:
 			text: "Rock"
+			color: 0,0,1,1
+			background_normal: 'onix.gif'
 			on_release: root.manager.current = 'Rock'
 		PokeButton:
 			text: "Bug"
+			color: 0,0,1,1
+			background_normal: 'caterpie.gif'
 			on_release: root.manager.current = 'Bug'
 		PokeButton:
 			text: "Ghost"
+			color: 0,0,1,1
+			background_normal: 'gengar.gif'
 			on_release: root.manager.current = 'Ghost'
 		PokeButton:
 			text: "Steel"
+			color: 0,0,1,1
+			background_normal: 'steelix.gif'
 			on_release: root.manager.current = 'Steel'
 		PokeButton:
 			text: "Fire"
+			color: 0,0,1,1
+			background_normal: 'charizard.gif'
 			on_release: root.manager.current = 'Fire'
 		PokeButton:
 			text: "Water"
+			color: 0,0,1,1
+			background_normal: 'blastoise.gif'
 			on_release: root.manager.current = 'Water'
 		PokeButton:
 			text: "Grass"
+			color: 0,0,1,1
+			background_normal: 'venusaur.gif'
 			on_release: root.manager.current = 'Grass'
 		PokeButton: 
 			text: "Electric"
+			color: 0,0,1,1
+			background_normal: 'pikachu.gif'
 			on_release: root.manager.current = 'Electric'
 		PokeButton:
 			text: "Psychic"
+			color: 0,0,1,1
+			background_normal: 'alakazam.zip'
 			on_release: root.manager.current = 'Psychic'
 		PokeButton:
 			text: "Ice"
+			color: 0,0,1,1
+			background_normal: 'glaceon.gif'
 			on_release: root.manager.current = 'Ice'
 		PokeButton:
 			text: "Dragon"
-			on_release: root.manager.current = 'Dragon'
+			color: 0,0,1,1
+			background_normal: 'dragonite.gif'
+			on_release: root.manager.current = 'dragon'
 		PokeButton:
 			text: "Dark"
+			color: 0,0,1,1
+			background_normal: 'darkrai.gif'
 			on_release: root.manager.current = 'Dark'
 		PokeButton:
 			text: "Fairy"
+			color: 0,0,1,1
+			background_normal: 'sylveon.gif'
 			on_release: root.manager.current = 'Fairy'
 				
 <Normal>
 	name: 'Normal'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Fighting>
 	name: 'Fighting'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
-			text: 'Hello Boys and Girls'
+			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Flying>
 	name: 'Flying'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Poison>
 	name: 'Poison'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Ground>	
 	name: 'Ground'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 
 <Rock>
 	name: 'Rock'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Bug>
 	name: 'Bug'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Ghost>
 	name: 'Ghost'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Steel>
 	name: 'Steel'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Fire>
 	name: 'Fire'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Water>
 	name: 'Water'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Grass>
 	name: 'Grass'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Electric>
 	name: 'Electric'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Psychic>
 	name: 'Psychic'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
+			on_release: root.manager.current = 'Home'
+<dragon>
+	name: 'dragon'
+	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
+		Label:
+			text:root.labelText
+			color: 1,0,0,1
+		Button:
+			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Ice>
 	name: 'Ice'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
-<Dragon>
-	name: 'Dragon'
-		BoxLayout:
-			Label:
-				text: root.labelText
-			Button:
-				text: 'Return To Main Screen'
-				on_release: root.manager.current = 'Home'
+
 <Dark>
 	name: 'Dark'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 <Fairy>
 	name: 'Fairy'
 	BoxLayout:
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source: 'background.jpg'
 		Label:
 			text: root.labelText
+			color: 1,0,0,1
 		Button:
 			text: 'Return To Main Screen'
+			color: 1,0,0,1
+			background_normal: 'otherbackgroud.jpg'
 			on_release: root.manager.current = 'Home'
 			
 <Change>
@@ -220,18 +408,17 @@
 	Ground:
 	Rock:
 	Bug:
-	Ghost:
+	Ghost: 
 	Steel:
 	Fire:
 	Water:
 	Grass:
 	Electric:
 	Psychic:
+	dragon:
 	Ice:
-	Dragon:
 	Dark:
 	Fairy:
-	
 	
 	
 	

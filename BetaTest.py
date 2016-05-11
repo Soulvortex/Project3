@@ -9,18 +9,22 @@ from kivy.properties import ObjectProperty
 from kivy.uix.tabbedpanel import TabbedPanel
 from kivy.lang import Builder
 from kivy.uix.widget import Widget
+from kivy.core.audio import SoundLoader
+from kivy.uix.image import Image
 import json
 import requests
 from pprint import pprint
 from sys import argv
 
 start="http://pokeapi.co/api/v2/type/1/"
-
+#HomeScreen Where We Set all of the Buttons, a lot of this is declared in the KV file
 class HomeScreen(Screen):
 	pass
+#Ok now all these classes contain the same parsing material but I will only comment normal
 class Normal(Screen):
 	code=requests.get(start)
 	final=code.json()
+	#So above we make the api call and turn the data into a nicer easier to parse json object
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
 	else:
@@ -45,10 +49,9 @@ class Normal(Screen):
 		NDT="Blank"
 	else:
 		NDT=final["damage_relations"]["no_damage_to"]
+	#Above here we go through 6 instances of damage relations, check to see if they are empty (if they are set to blank) and then store it in another file to parse again
 	
-	
-	
-	
+	#Below is all of the for loops that do the second parse, if "blank" then we return a statement saying so, else we pull out "name" out of the variables such as DDT which will return 1 of the 18 types
 	for rs in DDT:
 		if DDT=="Blank":
 			First="This Type Has No Super Effective Moves"
@@ -79,10 +82,12 @@ class Normal(Screen):
 			Sixth="No Other Types Are Immune To This Type"
 		else:
 			Sixth="Does No Damage To: " + rs["name"]
+	#finally our kv file calls to this statement in each screen and the label = combinations of all the statements
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Fighting(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/2/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -145,7 +150,8 @@ class Fighting(Screen):
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Flying(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/3/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -208,7 +214,8 @@ class Flying(Screen):
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Poison(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/4/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -270,8 +277,10 @@ class Poison(Screen):
 			Sixth="Does No Damage To: " + rs["name"]
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
+
 class Ground(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/5/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -334,7 +343,8 @@ class Ground(Screen):
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Rock(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/6/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -396,8 +406,10 @@ class Rock(Screen):
 			Sixth="Does No Damage To: " + rs["name"]
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
+
 class Bug(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/7/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -460,7 +472,8 @@ class Bug(Screen):
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Ghost(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/8/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -522,8 +535,10 @@ class Ghost(Screen):
 			Sixth="Does No Damage To: " + rs["name"]
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
+
 class Steel(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/9/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -586,7 +601,8 @@ class Steel(Screen):
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Fire(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/10/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -649,7 +665,8 @@ class Fire(Screen):
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Water(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/11/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -712,7 +729,8 @@ class Water(Screen):
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Grass(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/12/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -774,8 +792,75 @@ class Grass(Screen):
 			Sixth="Does No Damage To: " + rs["name"]
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
+
+class Electric(Screen):
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/13/')
+	code=requests.get(new_code)
+	final=code.json()
+	if final["damage_relations"]["double_damage_to"]==[]:
+		DDT="Blank"
+	else:
+		DDT=final["damage_relations"]["double_damage_to"]
+	if final["damage_relations"]["double_damage_from"]==[]:
+		DDF="Blank"
+	else:
+		DDF=final["damage_relations"]["double_damage_from"]
+	if final["damage_relations"]["half_damage_from"]==[]:
+		HDF="Blank"
+	else:
+		HDF=final["damage_relations"]["half_damage_from"]
+	if final["damage_relations"]["half_damage_to"]==[]:
+		HDT="Blank"
+	else:
+		HDT=final["damage_relations"]["half_damage_to"]
+	if final["damage_relations"]["no_damage_from"]==[]:
+		NDF="Blank"
+	else:
+		NDF=final["damage_relations"]["no_damage_from"]
+	if final["damage_relations"]["no_damage_to"]==[]:
+		NDT="Blank"
+	else:
+		NDT=final["damage_relations"]["no_damage_to"]
+	
+	
+	
+	
+	for rs in DDT:
+		if DDT=="Blank":
+			First="This Type Has No Super Effective Moves"
+		else:
+			First="Does Double Damage To: " + rs["name"]
+	for rs in DDF:
+		if DDF=="Blank":
+			Second="This Type Does Not Take Any Super Effective Damage"
+		else:
+			Second="Takes Double Damage From: " + rs["name"]
+	for rs in HDF:
+		if HDF=="Blank":
+			Third="This Type Does Not Have Any Resistances"
+		else:
+			Third="Take Half Damage From: " + rs["name"]
+	for rs in HDT:
+		if HDT=="Blank":
+			Fourth="No Other Types Are Resistant To This Type"
+		else:
+			Fourth="Does Half Damage To: " + rs["name"]
+	for rs in NDF:
+		if NDF=="Blank":
+			Fifth="Those Type Has No Immunities"
+		else:
+			Fifth="Take No Damage From: " + rs["name"]
+	for rs in NDT:
+		if NDT=="Blank":
+			Sixth="No Other Types Are Immune To This Type"
+		else:
+			Sixth="Does No Damage To: " + rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	pass
+
 class Psychic(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/14/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -837,8 +922,75 @@ class Psychic(Screen):
 			Sixth="Does No Damage To: " + rs["name"]
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
+
+class dragon(Screen):
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/16/')
+	code=requests.get(new_code)
+	final=code.json()
+	if final["damage_relations"]["double_damage_to"]==[]:
+		DDT="Blank"
+	else:
+		DDT=final["damage_relations"]["double_damage_to"]
+	if final["damage_relations"]["double_damage_from"]==[]:
+		DDF="Blank"
+	else:
+		DDF=final["damage_relations"]["double_damage_from"]
+	if final["damage_relations"]["half_damage_from"]==[]:
+		HDF="Blank"
+	else:
+		HDF=final["damage_relations"]["half_damage_from"]
+	if final["damage_relations"]["half_damage_to"]==[]:
+		HDT="Blank"
+	else:
+		HDT=final["damage_relations"]["half_damage_to"]
+	if final["damage_relations"]["no_damage_from"]==[]:
+		NDF="Blank"
+	else:
+		NDF=final["damage_relations"]["no_damage_from"]
+	if final["damage_relations"]["no_damage_to"]==[]:
+		NDT="Blank"
+	else:
+		NDT=final["damage_relations"]["no_damage_to"]
+	
+	
+	
+	for rs in DDT:
+		while rs["name"] in DDT:
+			First="Does Double Damage To: " + rs["name"]
+		else:
+			First="This Type Has No Super Effective Moves"
+			
+	for rs in DDF:
+		if DDF=="Blank":
+			Second="This Type Does Not Take Any Super Effective Damage"
+		else:
+			Second="Takes Double Damage From: " + rs["name"]
+	for rs in HDF:
+		if HDF=="Blank":
+			Third="This Type Does Not Have Any Resistances"
+		else:
+			Third="Take Half Damage From: " + rs["name"]
+	for rs in HDT:
+		if HDT=="Blank":
+			Fourth="No Other Types Are Resistant To This Type"
+		else:
+			Fourth="Does Half Damage To: " + rs["name"]
+	for rs in NDF:
+		if NDF=="Blank":
+			Fifth="Those Type Has No Immunities"
+		else:
+			Fifth="Take No Damage From: " + rs["name"]
+	for rs in NDT:
+		if NDT=="Blank":
+			Sixth="No Other Types Are Immune To This Type"
+		else:
+			Sixth="Does No Damage To: " + rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	pass
+
 class Ice(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/15/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -900,71 +1052,11 @@ class Ice(Screen):
 			Sixth="Does No Damage To: " + rs["name"]
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
-class Dragon(Screen):
-	code=requests.get(start)
-	final=code.json()
-	if final["damage_relations"]["double_damage_to"]==[]:
-		DDT="Blank"
-	else:
-		DDT=final["damage_relations"]["double_damage_to"]
-	if final["damage_relations"]["double_damage_from"]==[]:
-		DDF="Blank"
-	else:
-		DDF=final["damage_relations"]["double_damage_from"]
-	if final["damage_relations"]["half_damage_from"]==[]:
-		HDF="Blank"
-	else:
-		HDF=final["damage_relations"]["half_damage_from"]
-	if final["damage_relations"]["half_damage_to"]==[]:
-		HDT="Blank"
-	else:
-		HDT=final["damage_relations"]["half_damage_to"]
-	if final["damage_relations"]["no_damage_from"]==[]:
-		NDF="Blank"
-	else:
-		NDF=final["damage_relations"]["no_damage_from"]
-	if final["damage_relations"]["no_damage_to"]==[]:
-		NDT="Blank"
-	else:
-		NDT=final["damage_relations"]["no_damage_to"]
-	
-	
-	
-	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
-	pass
+
+
 class Dark(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/17/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -1027,7 +1119,8 @@ class Dark(Screen):
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
 class Fairy(Screen):
-	code=requests.get(start)
+	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/18/')
+	code=requests.get(new_code)
 	final=code.json()
 	if final["damage_relations"]["double_damage_to"]==[]:
 		DDT="Blank"
@@ -1061,7 +1154,7 @@ class Fairy(Screen):
 		if DDT=="Blank":
 			First="This Type Has No Super Effective Moves"
 		else:
-			First="Does Double Damage To: " + rs["name"]
+			First="This Type Is Super Effective Against: " + rs["name"]
 	for rs in DDF:
 		if DDF=="Blank":
 			Second="This Type Does Not Take Any Super Effective Damage"
@@ -1089,17 +1182,28 @@ class Fairy(Screen):
 			Sixth="Does No Damage To: " + rs["name"]
 	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
 	pass
+		
 class Change(ScreenManager):
-	pass
-	
+	pass	
 
 
 
-
+#Finally we build everything in the app, we call back change which is our screen manager
+#the screen manager contains every screen (19 of them) and can be called in one simple call
+#we also add music that loops through the program
 class TestApp(App):
 	def build(self):
+		sound=SoundLoader.load('pokemusic.mp3')
+		sound.loop=True
+		sound.play()
 		return Change()
-
+	
+		
+#this simply runs the app
+#If you want an explanation of the Kv file it is very hard to explain
+#and would be easier to explain in person
+#but to try to simplify the kv is sort of an html type of programming language
+#we put all of our widgets in there and by inputting their class name in the py file we simply put "pass" and all the info is passed from the kv to the py file
 if __name__=='__main__':		
 	TestApp().run()
 
