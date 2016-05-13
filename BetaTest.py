@@ -52,38 +52,49 @@ class Normal(Screen):
 	#Above here we go through 6 instances of damage relations, check to see if they are empty (if they are set to blank) and then store it in another file to parse again
 	
 	#Below is all of the for loops that do the second parse, if "blank" then we return a statement saying so, else we pull out "name" out of the variables such as DDT which will return 1 of the 18 types
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
 	#finally our kv file calls to this statement in each screen and the label = combinations of all the statements
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Fighting(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/2/')
@@ -117,37 +128,51 @@ class Fighting(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+			
+	
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Flying(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/3/')
@@ -181,37 +206,49 @@ class Flying(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Poison(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/4/')
@@ -244,40 +281,49 @@ class Poison(Screen):
 	
 	
 	
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
-
 class Ground(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/5/')
 	code=requests.get(new_code)
@@ -310,37 +356,48 @@ class Ground(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Rock(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/6/')
@@ -373,40 +430,49 @@ class Rock(Screen):
 	
 	
 	
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
-
 class Bug(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/7/')
 	code=requests.get(new_code)
@@ -439,37 +505,48 @@ class Bug(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Ghost(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/8/')
@@ -503,39 +580,49 @@ class Ghost(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
-
 class Steel(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/9/')
 	code=requests.get(new_code)
@@ -568,37 +655,48 @@ class Steel(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Fire(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/10/')
@@ -632,37 +730,48 @@ class Fire(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Water(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/11/')
@@ -695,38 +804,48 @@ class Water(Screen):
 	
 	
 	
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Grass(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/12/')
@@ -760,39 +879,49 @@ class Grass(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
-
 class Electric(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/13/')
 	code=requests.get(new_code)
@@ -825,39 +954,49 @@ class Electric(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
-
 class Psychic(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/14/')
 	code=requests.get(new_code)
@@ -890,39 +1029,49 @@ class Psychic(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
-
 class dragon(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/16/')
 	code=requests.get(new_code)
@@ -953,41 +1102,49 @@ class dragon(Screen):
 		NDT=final["damage_relations"]["no_damage_to"]
 	
 	
-	
-	for rs in DDT:
-		while rs["name"] in DDT:
-			First="Does Double Damage To: " + rs["name"]
-		else:
-			First="This Type Has No Super Effective Moves"
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
 			
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
-
 class Ice(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/15/')
 	code=requests.get(new_code)
@@ -1020,40 +1177,49 @@ class Ice(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
-
-
 class Dark(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/17/')
 	code=requests.get(new_code)
@@ -1086,37 +1252,48 @@ class Dark(Screen):
 	
 	
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="Does Double Damage To: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
+	
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
 	pass
 class Fairy(Screen):
 	new_code=str.replace(start, 'http://pokeapi.co/api/v2/type/1/', 'http://pokeapi.co/api/v2/type/18/')
@@ -1149,40 +1326,49 @@ class Fairy(Screen):
 	
 	
 	
+	if DDT=="Blank":
+		First="This Type Has No Super Effective Moves"
+	else:
+		First="Does Double Damage To"
+		for rs in DDT:
+			First=First+", "+rs["name"]
+			
+	if DDF=="Blank":
+		Second="This Type Does Not Take Any Super Effective Damage"
+	else:
+		Second="Takes Double Damage From"
+		for rs in DDF:
+			Second=Second+", " + rs["name"]
 	
-	for rs in DDT:
-		if DDT=="Blank":
-			First="This Type Has No Super Effective Moves"
-		else:
-			First="This Type Is Super Effective Against: " + rs["name"]
-	for rs in DDF:
-		if DDF=="Blank":
-			Second="This Type Does Not Take Any Super Effective Damage"
-		else:
-			Second="Takes Double Damage From: " + rs["name"]
-	for rs in HDF:
-		if HDF=="Blank":
-			Third="This Type Does Not Have Any Resistances"
-		else:
-			Third="Take Half Damage From: " + rs["name"]
-	for rs in HDT:
-		if HDT=="Blank":
-			Fourth="No Other Types Are Resistant To This Type"
-		else:
-			Fourth="Does Half Damage To: " + rs["name"]
-	for rs in NDF:
-		if NDF=="Blank":
-			Fifth="Those Type Has No Immunities"
-		else:
-			Fifth="Take No Damage From: " + rs["name"]
-	for rs in NDT:
-		if NDT=="Blank":
-			Sixth="No Other Types Are Immune To This Type"
-		else:
-			Sixth="Does No Damage To: " + rs["name"]
-	labelText=First+'\n'+Second+'\n'+Third+'\n'+Fourth+'\n'+Fifth+'\n'+Sixth
-	pass
-		
+	if HDF=="Blank":
+		Third="This Type Does Not Have Any Resistances"
+	else:
+		Third="Take Half Damage From"
+		for rs in HDF:
+			Third=Third+", "+rs["name"]
+	
+	if HDT=="Blank":
+		Four="No Other Types Are Resistant To This Type"
+	else:
+		Four="Does Half Damage To" 
+		for rs in HDT:
+			Four=Four+", "+rs["name"]
+			
+	if NDF=="Blank":
+		Fifth="This Type Has No Immunities"
+	else:
+		Fifth="Take No Damage From"
+		for rs in NDF:
+			Fifth=Fifth+", "+rs["name"]
+	
+	if NDT=="Blank":
+		Sixth="No Other Types Are Immune To This Type"
+	else:
+		Sixth="Does No Damage To"
+		for rs in HDT:
+			Sixth=Sixth+", "+rs["name"]
+	labelText=First+'\n'+Second+'\n'+Third+'\n'+Four+'\n'+Fifth+'\n'+Sixth
+	pass		
 class Change(ScreenManager):
 	pass	
 
